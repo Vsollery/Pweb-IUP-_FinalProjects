@@ -1,3 +1,7 @@
+<?php
+require('dbconn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,17 +43,10 @@
                         </div>
                         
                         <div class="form-group mb-4">
-                            <label for="Category"> Category </label>
-                            <select class="form-control" name="Category" id="Category">
-                                <option value="GEN">General</option>
-                                <option value="OBC">OBC</option>
-                                <option value="SC">SC</option>
-                                <option value="ST">ST</option>
-                            </select>
                              <small>Already have an account? <a href="login.php">login</a></small>
                         </div>
                         
-                        <button type="submit" class="btn btn-dark">Register</button>
+                        <button type="submit" name="signup" value="Sign Up" class="btn btn-dark">Register</button>
                         
                         
                     </form>
@@ -60,5 +57,37 @@
 
         
     </div>
+
+
+
+<?php
+
+    if(isset($_POST['signup']))
+{
+	$name=$_POST['Name'];
+	$email=$_POST['Email'];
+	$password=$_POST['Password'];
+	$mobno=$_POST['PhoneNumber'];
+	$rollno=$_POST['RollNo'];
+	$type='Student';
+
+	$sql="insert into PwebFP.user (Name,Type,RollNo,Email,MobNo,Password) values ('$name','$type','$rollno','$email','$mobno','$password')";
+
+	if ($conn->query($sql) === TRUE) {
+echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+header('location:index.php');
+} else {
+    //echo "Error: " . $sql . "<br>" . $conn->error;
+echo "<script type='text/javascript'>alert('User Exists')</script>";
+}
+}
+
+?>
+
+ <!-- SCRIPT  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>
