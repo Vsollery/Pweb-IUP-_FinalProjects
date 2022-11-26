@@ -59,26 +59,24 @@ require('dbconn.php');
 
 <?php
 
-    if(isset($_POST['signup']))
-{
-	$name=$_POST['Name'];
-	$email=$_POST['Email'];
-	$password=$_POST['Password'];
-	$mobno=$_POST['PhoneNumber'];
-	$rollno=$_POST['RollNo'];
-	$type='Student';
+    if(isset($_POST['signup'])) {
+        $name=$_POST['Name'];
+        $email=$_POST['Email'];
+        $password=$_POST['Password'];
+        $mobno=$_POST['PhoneNumber'];
+        $rollno=$_POST['RollNo'];
+        $type='Student';
 
-	$sql="insert into PwebFP.user (Name,Type,RollNo,Email,MobNo,Password) values ('$name','$type','$rollno','$email','$mobno','$password')";
+        $sql="insert into PwebFP.user (Name,Type,RollNo,Email,MobNo,Password) values ('$name','$type','$rollno','$email','$mobno','$password')";
 
-	if ($conn->query($sql) === TRUE) {
-echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-header('location:index.php');
-} else {
-    //echo "Error: " . $sql . "<br>" . $conn->error;
-echo "<script type='text/javascript'>alert('User Exists')</script>";
-}
-}
-
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+        header('location:index.php');
+    } else {
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "<script type='text/javascript'>alert('User Exists')</script>";
+        }
+    }
 ?>
 
  <!-- SCRIPT  -->
