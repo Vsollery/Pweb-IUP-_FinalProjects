@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="keywords" content="Library Member Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<script type="application/x-javascript"> addEventListener("load",function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- //Meta-Tags -->
 
 	<!-- Style --> <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
@@ -39,17 +39,16 @@
 			<p class="text-white text-center">* Erlangga Wahyu Utomo - 5025201118</p>
 			<p class="text-white text-center">* Christian Jeremia Halomoan Pakpahan - 5025201153</p>
 		</div>
-
 		
         <div class="row mt-5">
             <div class="col">
                 <div class="d-flex align-items-center">
-                    <a class="btn btn-primary btn-md text-center flex-fill " href="login.php" role="button">LOGIN</a>
+                    <a class="btn btn-primary btn-md text-center flex-fill " href="login.php" role="button"> LOGIN </a>
                 </div>
             </div>
             <div class="col">
                 <div class=" d-flex align-items-center">
-                    <a class="btn btn-light btn-md text-center flex-fill " href="register.php" role="button">REGISTER</a>
+                    <a class="btn btn-light btn-md text-center flex-fill " href="register.php" role="button"> REGISTER </a>
                 </div>    
             </div>
         </div>
@@ -60,7 +59,6 @@
 		<p> &copy; 2022 Library Member Login. All Rights Reserved </a></p>
 		
 	</div>
-
 
 </body>
 <!-- //Body -->
