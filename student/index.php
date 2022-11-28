@@ -1,7 +1,6 @@
-﻿<?php
+<?php
 require('dbconn.php');
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +13,7 @@ require('dbconn.php');
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
-            rel='stylesheet'>
+        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -73,24 +71,22 @@ require('dbconn.php');
                     			<div class="card-body">
 
                                 <?php
-                                $rollno = $_SESSION['RollNo'];
-                                $sql="select * from LMS.user where RollNo='$rollno'";
-                                $result=$conn->query($sql);
-                                $row=$result->fetch_assoc();
+                                    $rollno = $_SESSION['RollNo'];
+                                    $sql="select * from pwebfp.user where RollNo='$rollno'";
+                                    $result=$conn->query($sql);
+                                    $row=$result->fetch_assoc();
 
-                                $name=$row['Name'];
-                                $category=$row['Category'];
-                                $email=$row['EmailId'];
-                                $mobno=$row['MobNo'];
+                                    $name=$row['Name'];
+                                    // $category=$row['Category'];
+                                    $email=$row['Email'];
+                                    $mobno=$row['MobNo'];
                                 ?>    
-                    				<i>
+                    			<i>
                     				<h1 class="card-title"><center><?php echo $name ?></center></h1>
                     				<br>
-                    				<p><b>Email ID: </b><?php echo $email ?></p>
+                    				<p><b>Email: </b><?php echo $email ?></p>
                     				<br>
                     				<p><b>Roll No: </B><?php echo $rollno ?></p>
-                    				<br>
-                    				<p><b>Category: </b><?php echo $category ?></p>
                     				<br>
                     				<p><b>Mobile number: </b><?php echo $mobno ?></p>
                     				</b>
@@ -108,9 +104,9 @@ require('dbconn.php');
             </div>
             <!--/.container-->
         </div>
-<div class="footer">
+        <div class="footer">
             <div class="container">
-                <b class="copyright">&copy; 2018 Library Management System </b>All rights reserved.
+                <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
             </div>
         </div>
         
