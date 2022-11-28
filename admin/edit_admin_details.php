@@ -89,7 +89,7 @@ if ($_SESSION['RollNo']) {
                                 $row=$result->fetch_assoc();
 
                                 $name=$row['Name'];
-                                $email=$row['EmailId'];
+                                $email=$row['Email'];
                                 $mobno=$row['MobNo'];
                                 $pswd=$row['Password'];
                                 ?>    
@@ -104,7 +104,7 @@ if ($_SESSION['RollNo']) {
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="EmailId"><b>Email Id:</b></label>
+                                        <label class="control-label" for="EmailId"><b>Email :</b></label>
                                         <div class="controls">
                                             <input type="text" id="EmailId" name="EmailId" value= "<?php echo $email?>" class="span8" required>
                                         </div>
@@ -161,11 +161,11 @@ if(isset($_POST['submit']))
 {
     $rollno = $_GET['id'];
     $name=$_POST['Name'];
-    $email=$_POST['EmailId'];
+    $email=$_POST['Email'];
     $mobno=$_POST['MobNo'];
     $pswd=$_POST['Password'];
 
-$sql1="update PwebFP.user set Name='$name', EmailId='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
+$sql1="update PwebFP.user set Name='$name', Email='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
 
 
 
