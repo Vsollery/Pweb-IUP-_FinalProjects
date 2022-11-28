@@ -53,17 +53,29 @@ if ($_SESSION['RollNo']) {
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="index.php"><i class="menu-icon icon-home"></i>Home
-                                </a></li>
-                                 <li><a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                <li class="active"><a href="index.php"><i class="menu-icon icon-home"></i>Home</a>
                                 </li>
-                                <li><a href="student.php"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                <li>
+                                    <a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="book.php"><i class="menu-icon icon-book"></i>All Books </a></li>
-                                <li><a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a></li>
-                                <li><a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
-                                <li><a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a></li>
-                                <li><a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
+                                <li>
+                                    <a href="student.php"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                </li>
+                                <li>
+                                    <a href="book.php"><i class="menu-icon icon-book"></i>All Books </a>
+                                </li>
+                                <li>
+                                    <a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a>
+                                </li>
+                                <li>
+                                    <a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a>
+                                </li>
+                                <li>
+                                    <a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a>
+                                </li>
+                                <li>
+                                    <a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a>
+                                </li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="logout.php"><i class="menu-icon icon-signout"></i>Logout </a></li>
@@ -80,23 +92,23 @@ if ($_SESSION['RollNo']) {
                                 <div class="card-body">
 
                                 <?php
-                                $rollno = $_SESSION['RollNo'];
-                                $sql="select * from LMS.user where RollNo='$rollno'";
-                                $result=$conn->query($sql);
-                                $row=$result->fetch_assoc();
+                                    $rollno = $_SESSION['RollNo'];
+                                    $sql="select * from pwebfp.user where RollNo='$rollno'";
+                                    $result=$conn->query($sql);
+                                    $row=$result->fetch_assoc();
 
-                                $name=$row['Name'];
-                                $category=$row['Category'];
-                                $email=$row['EmailId'];
-                                $mobno=$row['MobNo'];
+                                    $name=$row['Name'];
+                                    // $category=$row['Category'];
+                                    $email=$row['Email'];
+                                    $mobno=$row['MobNo'];
                                 ?>    
-                                    <i>
-                                    <h1 class="card-title"><center><?php echo $name ?></center></h1>
-                                    <br>
-                                    <p><b>Email ID: </b><?php echo $email ?></p>
-                                    <br>
-                                    <p><b>Mobile number: </b><?php echo $mobno ?></p>
-                                    </b>
+                    			<i>
+                    				<h1 class="card-title"><center><?php echo $name ?></center></h1>
+                    				<br>
+                    				<p><b>Email: </b><?php echo $email ?></p>
+                    				<br>
+                    				<p><b>Mobile number: </b><?php echo $mobno ?></p>
+                    				</b>
                                 </i>
 
                                 </div>
@@ -111,7 +123,8 @@ if ($_SESSION['RollNo']) {
             </div>
             <!--/.container-->
         </div>
-<div class="footer">
+
+        <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
             </div>

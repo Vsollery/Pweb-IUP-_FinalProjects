@@ -4,8 +4,8 @@ require('dbconn.php');
 ?>
 
 <?php 
-if ($_SESSION['RollNo']) {
-    ?>
+    if ($_SESSION['RollNo']) {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@ if ($_SESSION['RollNo']) {
             </div>
             <!-- /navbar-inner -->
         </div>
-        <!-- /navbar -->
+        <!-- /side navbar -->
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -141,7 +141,8 @@ if ($_SESSION['RollNo']) {
             </div>
             <!--/.container-->
         </div>
-<div class="footer">
+
+        <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
             </div>
@@ -170,14 +171,14 @@ $sql1="update LMS.user set Name='$name', EmailId='$email', MobNo='$mobno', Passw
 
 
 if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-header( "Refresh:0.01; url=index.php", true, 303);
-}
-else
-{//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
-}
-}
+        echo "<script type='text/javascript'>alert('Success')</script>";
+        header( "Refresh:0.01; url=index.php", true, 303);
+     }
+    else
+    {//echo $conn->error;
+        echo "<script type='text/javascript'>alert('Error')</script>";
+    }
+  }
 ?>
       
     </body>

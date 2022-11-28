@@ -4,8 +4,8 @@ require('dbconn.php');
 ?>
 
 <?php 
-if ($_SESSION['RollNo']) {
-    ?>
+    if ($_SESSION['RollNo']) {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +21,13 @@ if ($_SESSION['RollNo']) {
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
     </head>
+
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php">LMS </a>
+                    <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php">LMS </a>
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav pull-right">
                             <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -54,17 +55,30 @@ if ($_SESSION['RollNo']) {
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="index.php"><i class="menu-icon icon-home"></i>Home
-                                </a></li>
-                                 <li><a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                <li class="active">
+                                    <a href="index.php"><i class="menu-icon icon-home"></i>Home</a>
                                 </li>
-                                <li><a href="student.php"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                <li>
+                                    <a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="book.php"><i class="menu-icon icon-book"></i>All Books </a></li>
-                                <li><a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a></li>
-                                <li><a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
-                                <li><a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a></li>
-                                <li><a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
+                                <li>
+                                    <a href="student.php"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                </li>
+                                <li>
+                                    <a href="book.php"><i class="menu-icon icon-book"></i>All Books </a>
+                                </li>
+                                <li>
+                                    <a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a>
+                                </li>
+                                <li>
+                                    <a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a>
+                                </li>
+                                <li>
+                                    <a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a>
+                                </li>
+                                <li>
+                                    <a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a>
+                                </li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="logout.php"><i class="menu-icon icon-signout"></i>Logout </a></li>
@@ -83,15 +97,15 @@ if ($_SESSION['RollNo']) {
 
 
                                 <?php
-                                $rollno = $_SESSION['RollNo'];
-                                $sql="select * from PwebFP.user where RollNo='$rollno'";
-                                $result=$conn->query($sql);
-                                $row=$result->fetch_assoc();
+                                    $rollno = $_SESSION['RollNo'];
+                                    $sql="select * from pwebfp.user where RollNo='$rollno'";
+                                    $result=$conn->query($sql);
+                                    $row=$result->fetch_assoc();
 
-                                $name=$row['Name'];
-                                $email=$row['EmailId'];
-                                $mobno=$row['MobNo'];
-                                $pswd=$row['Password'];
+                                    $name=$row['Name'];
+                                    $email=$row['Email'];
+                                    $mobno=$row['MobNo'];
+                                    $pswd=$row['Password'];
                                 ?>    
                                 
                                 <form class="form-horizontal row-fluid" action="edit_admin_details.php?id=<?php echo $rollno ?>" method="post">
@@ -125,10 +139,10 @@ if ($_SESSION['RollNo']) {
                                     </div>   
 
                                     <div class="control-group">
-                                            <div class="controls">
-                                                <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
-                                            </div>
-                                        </div>                                                                     
+                                        <div class="controls">
+                                            <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
+                                        </div>
+                                    </div>                                                                     
 
                                 </form>
                                        
@@ -141,7 +155,7 @@ if ($_SESSION['RollNo']) {
             </div>
             <!--/.container-->
         </div>
-<div class="footer">
+        <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
             </div>
@@ -156,36 +170,35 @@ if ($_SESSION['RollNo']) {
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
 
-<?php
-if(isset($_POST['submit']))
-{
-    $rollno = $_GET['id'];
-    $name=$_POST['Name'];
-    $email=$_POST['EmailId'];
-    $mobno=$_POST['MobNo'];
-    $pswd=$_POST['Password'];
+        <?php
+            if(isset($_POST['submit']))
+            {
+                $rollno = $_GET['id'];
+                $name=$_POST['Name'];
+                $email=$_POST['Email'];
+                $mobno=$_POST['MobNo'];
+                $pswd=$_POST['Password'];
 
-$sql1="update PwebFP.user set Name='$name', EmailId='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
+                $sql1="update PwebFP.user set Name='$name', Email='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
 
-
-
-if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-header( "Refresh:0.01; url=index.php", true, 303);
-}
-else
-{//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
-}
-}
-?>
+                if($conn->query($sql1) === TRUE){
+                        echo "<script type='text/javascript'>alert('Success')</script>";
+                header( "Refresh:0.01; url=index.php", true, 303);
+                }
+                else
+                {//echo $conn->error;
+                    echo "<script type='text/javascript'>alert('Error')</script>";
+                }
+            }
+        ?>
       
     </body>
 
 </html>
 
 
-<?php }
+<?php   
+}
 else {
     echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
 } ?>

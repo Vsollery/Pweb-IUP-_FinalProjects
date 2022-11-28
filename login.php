@@ -38,30 +38,34 @@ require('dbconn.php');
 
     <?php
         if(isset($_POST['signin']))
-        {$u=$_POST['RollNo'];
-         $p=$_POST['Password'];
+        {
+            $u=$_POST['RollNo'];
+            $p=$_POST['Password'];
          
 
-         $sql="select * from PwebFP.user where RollNo='$u'";
+            $sql="select * from PwebFP.user where RollNo='$u'";
         
-         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $x=$row['Password'];
-        $y=$row['Type'];
-        if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
-          {echo "Login Successful";
-           $_SESSION['RollNo']=$u;
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $x=$row['Password'];
+            $y=$row['Type'];
+
+            if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
+            {
+                echo "Login Successful";
+                 $_SESSION['RollNo']=$u;
            
         
-          if($y=='Admin')
-           header('location:admin/index.php');
-          else
-              header('location:student/index.php');
-                
-          }
-        else 
-         { echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
-        }
+                if($y=='Admin')
+                header('location:admin/index.php');
+                else
+                header('location:student/index.php');
+                    
+            }
+            else 
+            { 
+            echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
+            }
     }
     ?>
 
