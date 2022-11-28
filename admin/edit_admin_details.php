@@ -113,21 +113,21 @@ require('dbconn.php');
                                     <div class="control-group">
                                         <label class="control-label" for="Name"><b>Name:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="Name" name="Name" value= "<?php echo $name?>" class="span8" required>
+                                            <input type="text" id="Name" name="Name" value= "<?php echo $name ?>" class="span8" required>
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label" for="EmailId"><b>Email Id:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="EmailId" name="EmailId" value= "<?php echo $email?>" class="span8" required>
+                                            <input type="text" id="EmailId" name="EmailId" value= "<?php echo $email ?>" class="span8" required>
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label" for="MobNo"><b>Mobile Number:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="MobNo" name="MobNo" value= "<?php echo $mobno?>" class="span8" required>
+                                            <input type="text" id="MobNo" name="MobNo" value= "<?php echo $mobno ?>" class="span8" required>
                                         </div>
                                     </div>
 
