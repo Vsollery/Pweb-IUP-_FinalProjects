@@ -118,9 +118,9 @@ require('dbconn.php');
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="EmailId"><b>Email :</b></label>
+                                        <label class="control-label" for="Email"><b>Email :</b></label>
                                         <div class="controls">
-                                            <input type="text" id="EmailId" name="EmailId" value= "<?php echo $email ?>" class="span8" required>
+                                            <input type="text" id="Email" name="Email" value= "<?php echo $email?>" class="span8" required>
                                         </div>
                                     </div>
 
