@@ -8,206 +8,174 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap CDN -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>Add Books</title>
+</head>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LMS</title>
-        <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="css/theme.css" rel="stylesheet">
-        <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'rel='stylesheet'>
-    </head>
-    <body>
-        <!-- Navbar Top -->
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php">LMS 
-                    </a>
-                    <div class="nav-collapse collapse navbar-inverse-collapse dropdown show">
-                        <ul class="nav pull-right">
-                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="images/user.png" class="nav-avatar" />
-                                <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.php">Your Profile</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+<body>
+    <!-- TOP NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="images/LMS.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Library System
+        </a>
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="images/user.png" width="30" height="30" class="nav-avatar" />
+                        <b class="caret"></b>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="index.php">
+                            <button class="dropdown-item" type="button">Your Profile</button>
+                        </a>
+                        <a href="logout.php">
+                            <button class="dropdown-item" type="button">Logout</button>
+                        </a>
                     </div>
-                    <!-- /.nav-collapse -->
+                </div>
+            </li>
+        </ul>    
+    </nav>
+
+    <!-- side navbar -->
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                    
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item ">
+                            <a href="index.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="message.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-chat-dots-fill"></i> <span class="ms-2 d-none d-sm-inline">Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="student.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-person-workspace"></i> <span class="ms-1 d-none d-sm-inline">Manage Students</span></a>
+                        </li>
+                        <li>
+                            <a href="book.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
+                        </li>
+                        <li>
+                            <a href="addbook.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Add Books</span></a>
+                        </li>
+                        <li>
+                            <a href="requests.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Issue/Return Requests </span> </a>
+                        </li>
+                        <li>
+                            <a href="recommendations.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Book Recommendations </span> </a>
+                        </li>
+                        <li>
+                            <a href="current.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Currently Issued Books </span> </a>
+                        </li>
+                        <li>
+                            <a href="logout.php">
+                                <button type="button" class="btn btn-danger mt-3" style="width: 200px;"> <a href="logout.php">Logout</a></button>
+                            </a>
+                        </li>
+                    </ul>                   
                 </div>
             </div>
-            <!-- /navbar-inner -->
-        </div>
-        <!-- SIDE navbar -->
-        <div class="wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="span3">
-                        <div class="sidebar">
-                            <ul class="widget widget-menu unstyled">
-                                <li class="active">
-                                    <a href="index.php"><i class="menu-icon icon-home"></i>Home</a>
-                                </li>
-                                 <li>
-                                    <a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
-                                </li>
-                                <li>
-                                    <a href="student.php"><i class="menu-icon icon-user"></i>Manage Students</a>
-                                </li>
-                                <li>
-                                    <a href="book.php"><i class="menu-icon icon-book"></i>All Books </a>
-                                </li>
-                                <li>
-                                    <a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a>
-                                </li>
-                                <li>
-                                    <a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a>
-                                </li>
-                                <li>
-                                    <a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a>
-                                </li>
-                                <li>
-                                    <a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a>
-                                </li>
-                            </ul>
-                            <ul class="widget widget-menu unstyled">
-                                <li><a href="logout.php"><i class="menu-icon icon-signout"></i>Logout </a></li>
-                            </ul>
+            <!-- CONTENT -->
+            <div class="col mt-5">
+                <div class="container-fluid">
+                    <h1 class="text-center">Add Book</h1>
+                </div>
+                <div class="container bg-light p-5 mt-5">
+                    <form action="addbook.php" method="post">
+                        <div class="form-group">
+                            <label for="InputBookTitle">Book Title</label>
+                            <input type="text" name="title" class="form-control" id="InputBookTitle" placeholder="Enter Book Title" required>
                         </div>
-                        <!--/.sidebar-->
-                    </div>
-                    <!--/.span3-->
-                    <!--/.span9-->
-                    <div class="span9">
-                    <div class="content">
-
-                    <div class="module">
-                        <div class="module-head">
-                            <h3 class="text-center">Add Book</h3>
+                        <div class="form-group">
+                            <label for="InputAuthor">Author</label>
+                            <input type="text" name="author1" class="form-control" id="InputAuthor" placeholder="Enter Author 1" required>
+                            <input type="text" name="author2" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 2">
+                            <input type="text" name="author3" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 3">
                         </div>
-                        <div class="module-body">
-                            <br >
-                            <form class="form-horizontal row-fluid" action="addbook.php" method="post">
-                                <div class="control-group">
-                                    <label class="control-label" for="Title"><b>Book Title</b></label>
-                                    <div class="controls">
-                                        <input type="text" id="title" name="title" placeholder="Title" class="span8" required>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="Author"><b>Author</b></label>
-                                    <div class="controls">
-                                        <input type="text" id="author1" name="author1" class="span8" required>
-                                        <input type="text" id="author2" name="author2" class="span8">
-                                        <input type="text" id="author3" name="author3" class="span8">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="Publisher"><b>Publisher</b></label>
-                                    <div class="controls">
-                                        <input type="text" id="publisher" name="publisher" placeholder="Publisher" class="span8" required>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="Year"><b>Year</b></label>
-                                    <div class="controls">
-                                        <input type="text" id="year" name="year" placeholder="Year" class="span8" required>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="Availability"><b>Number of Copies</b></label>
-                                    <div class="controls">
-                                        <input type="text" id="availability" name="availability" placeholder="Number of Copies" class="span8" required>
-                                    </div>
-                                </div>
-                                        
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <button type="submit" name="submit"class="btn">Add Book</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <label for="InputPublisher">Publisher</label>
+                            <input type="text" name="publisher" class="form-control" id="InputPublisher" placeholder="Enter Publisher" required>
                         </div>
-                    </div>
-                       
-                </div><!--/.content-->
-            </div>
-
-        </div>
-    </div>
-            <!--/.container-->
-
-    </div>
-
-
-        <div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
+                        <div class="form-group">
+                            <label for="InputYear">Year</label>
+                            <input type="text" name="year" class="form-control" id="InputYear" placeholder="Enter Year" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputNumOfCop">Number of Copies</label>
+                            <input type="text" name="availability" class="form-control" id="InputNumOfCop" placeholder="Enter Number of Copies" required>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary center">Add Book</button>
+                    </form>
+                </div>
             </div>
         </div>
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <?php
-if(isset($_POST['submit']))
-{
-    $title=$_POST['title'];
-    $author1=$_POST['author1'];
-    $author2=$_POST['author2'];
-    $author3=$_POST['author3'];
-    $publisher=$_POST['publisher'];
-    $year=$_POST['year'];
-    $availability=$_POST['availability'];
+    if(isset($_POST['submit'])){
+        $title=$_POST['title'];
+        $author1=$_POST['author1'];
+        $author2=$_POST['author2'];
+        $author3=$_POST['author3'];
+        $publisher=$_POST['publisher'];
+        $year=$_POST['year'];
+        $availability=$_POST['availability'];
 
-$sql1= "insert into pwebfp.book (Title,Publisher,Year,Availability) values ('$title','$publisher','$year','$availability')";
+        $sql1= "insert into pwebfp.book (Title,Publisher,Year,Availability) values ('$title','$publisher','$year','$availability')";
 
-if($conn->query($sql1) === TRUE){
-    $sql2 = "select max(BookId) as x from LMS.book";
-    $result = $conn->query($sql2);
-    $row = $result->fetch_assoc();
-    $x = $row['x'];
-    $sql3 = "insert into LMS.author values ('$x','$author1')";
-    $result = $conn->query($sql3);
+        if($conn->query($sql1) === TRUE){
+            $sql2 = "select max(BookId) as x from LMS.book";
+            $result = $conn->query($sql2);
+            $row = $result->fetch_assoc();
+            $x = $row['x'];
+            $sql3 = "insert into LMS.author values ('$x','$author1')";
+            $result = $conn->query($sql3);
 
-    if(!empty($author2))
-    { 
-        $sql4="insert into LMS.author values('$x','$author2')";
-        $result=$conn->query($sql4);
+            if(!empty($author2)){ 
+                $sql4="insert into LMS.author values('$x','$author2')";
+                $result=$conn->query($sql4);
+            }
+            if(!empty($author3)){ 
+                $sql5="insert into LMS.author values('$x','$author3')";
+                $result=$conn->query($sql5);
+            }
+
+            echo "<script type='text/javascript'>alert('Success')</script>";
+        }
+        else{//echo $conn->error;
+            echo "<script type='text/javascript'>alert('Error')</script>";
+        }
+        
     }
-    if(!empty($author3))
-    { 
-        $sql5="insert into LMS.author values('$x','$author3')";
-        $result=$conn->query($sql5);
-    }
-
-    echo "<script type='text/javascript'>alert('Success')</script>";
-}
-else
-    {//echo $conn->error;
-    echo "<script type='text/javascript'>alert('Error')</script>";
-    }
-    
-}
 ?>
-      
-    </body>
+    
+</body>
 
 </html>
-
 
 <?php }
 else {

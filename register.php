@@ -55,8 +55,6 @@ require('dbconn.php');
             </div>       
     </div>
 
-
-
 <?php
 
     if(isset($_POST['signup'])) {
