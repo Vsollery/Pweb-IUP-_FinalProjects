@@ -89,7 +89,7 @@
                         </li>
                         <li>
                             <a href="logout.php">
-                                <button type="button" class="btn btn-danger mt-3" style="width: 200px;"> <a href="logout.php">Logout</a></button>
+                                <button type="button" class="btn btn-danger mt-3" style="width: 150px;"> <a href="logout.php">Logout</a></button>
                             </a>
                         </li>
                     </ul>                   
@@ -128,7 +128,7 @@
                             echo "<b>Year:</b> ".$year."<br><br>";
                             echo "<b>Availability:</b> ".$avail."<br><br>";
                         ?>
-                        
+
                         <a href="book.php" class="btn btn-primary">Go Back</a>  
                     </div>
                </div>                         
