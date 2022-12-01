@@ -102,10 +102,10 @@ require('dbconn.php');
                                     $result=$conn->query($sql);
                                     $row=$result->fetch_assoc();
 
-                                    $name=$row['Name'];
-                                    $email=$row['Email'];
-                                    $mobno=$row['MobNo'];
-                                    $pswd=$row['Password'];
+                                $name=$row['Name'];
+                                $email=$row['Email'];
+                                $mobno=$row['MobNo'];
+                                $pswd=$row['Password'];
                                 ?>    
                                 
                                 <form class="form-horizontal row-fluid" action="edit_admin_details.php?id=<?php echo $rollno ?>" method="post">
@@ -118,7 +118,7 @@ require('dbconn.php');
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="EmailId"><b>Email Id:</b></label>
+                                        <label class="control-label" for="EmailId"><b>Email :</b></label>
                                         <div class="controls">
                                             <input type="text" id="EmailId" name="EmailId" value= "<?php echo $email ?>" class="span8" required>
                                         </div>
@@ -170,16 +170,18 @@ require('dbconn.php');
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
 
-        <?php
-            if(isset($_POST['submit']))
-            {
-                $rollno = $_GET['id'];
-                $name=$_POST['Name'];
-                $email=$_POST['Email'];
-                $mobno=$_POST['MobNo'];
-                $pswd=$_POST['Password'];
+<?php
+if(isset($_POST['submit']))
+{
+    $rollno = $_GET['id'];
+    $name=$_POST['Name'];
+    $email=$_POST['Email'];
+    $mobno=$_POST['MobNo'];
+    $pswd=$_POST['Password'];
 
-                $sql1="update PwebFP.user set Name='$name', Email='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
+$sql1="update pwebfp.user set Name='$name', Email='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
+
+
 
                 if($conn->query($sql1) === TRUE){
                         echo "<script type='text/javascript'>alert('Success')</script>";
