@@ -16,7 +16,7 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <title>Add Books</title>
+    <title>Student List</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                     
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item ">
-                            <a href="index.php" class="nav-link align-middle px-0">
+                            <a href="#" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
@@ -95,87 +95,89 @@
                     </ul>                   
                 </div>
             </div>
-            <!-- CONTENT -->
-            <div class="col mt-5">
-                <div class="container-fluid">
-                    <h1 class="text-center">Add Book</h1>
-                </div>
-                <div class="container bg-light p-5 mt-5">
-                    <form action="addbook.php" method="post">
-                        <div class="form-group">
-                            <label for="InputBookTitle">Book Title</label>
-                            <input type="text" name="title" class="form-control" id="InputBookTitle" placeholder="Enter Book Title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputAuthor">Author</label>
-                            <input type="text" name="author1" class="form-control" id="InputAuthor" placeholder="Enter Author 1" required>
-                            <input type="text" name="author2" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 2">
-                            <input type="text" name="author3" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 3">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputPublisher">Publisher</label>
-                            <input type="text" name="publisher" class="form-control" id="InputPublisher" placeholder="Enter Publisher" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputYear">Year</label>
-                            <input type="text" name="year" class="form-control" id="InputYear" placeholder="Enter Year" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputNumOfCop">Number of Copies</label>
-                            <input type="text" name="availability" class="form-control" id="InputNumOfCop" placeholder="Enter Number of Copies" required>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-primary center">Add Book</button>
-                    </form>
+
+
+                    <div class="col mt-5">
+                    <div class="container-fluid">
+                    <h1 class="text-center mb-3">Student List</h1>
+                        <form class="form-horizontal row-fluid" action="student.php" method="post">
+                                        <div class="control-group">
+                                            <label class="control-label" for="Search"><b>Search:</b></label>
+                                            <div class="input-group">
+                                                <input type="text" id="title" name="title" placeholder="Enter Name/Roll No of Student" class="form-control rounded-0" aria-label="Search" >
+                                                <button type="submit" name="submit"class="btn btn-outline-dark rounded-0">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <?php
+                                    if(isset($_POST['submit']))
+                                        {$s=$_POST['title'];
+                                            $sql="select * from pwebfp.user where (RollNo='$s' or Name like '%$s%') and RollNo<>'ADMIN'";
+                                        }
+                                    else
+                                        $sql="select * from pwebfp.user where RollNo<>'ADMIN'";
+
+                                    $result=$conn->query($sql);
+                                    $rowcount=mysqli_num_rows($result);
+
+                                    if(!($rowcount))
+                                        echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
+                                    else
+                                    {
+
+                                    
+                                    ?>
+                        <table class="table mt-5 table-bordered" id = "tables">
+                                  <thead class="thead-dark">
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Roll No.</th>
+                                      <th>Email </th>                                      
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                    <?php
+                            
+                            //$result=$conn->query($sql);
+                            while($row=$result->fetch_assoc())
+                            {
+
+                                $email=$row['Email'];
+                                $name=$row['Name'];
+                                $rollno=$row['RollNo'];
+                            ?>
+                                    <tr>
+                                      <td><?php echo $name ?></td>
+                                      <td class="font-weight-bold text-primary" ><?php echo $rollno ?></td>
+                                      <td><?php echo $email ?></td>                                      
+                                        <td>
+                                        <center>
+                                            <a href="studentdetails.php?id=<?php echo $rollno; ?>" class="btn btn-success">Details</a>
+                                            <!--a href="remove_student.php?id=<?php echo $rollno; ?>" class="btn btn-danger">Remove</a-->
+                                      </center>
+                                        </td>
+                                    </tr>
+                            <?php }} ?>
+                                  </tbody>
+                                </table>
+                            </div>
+                    <!--/.span9-->
                 </div>
             </div>
-        </div>
-    </div>
+         </div>
+            <!--/.container-->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<?php
-    if(isset($_POST['submit'])){
-        $title=$_POST['title'];
-        $author1=$_POST['author1'];
-        $author2=$_POST['author2'];
-        $author3=$_POST['author3'];
-        $publisher=$_POST['publisher'];
-        $year=$_POST['year'];
-        $availability=$_POST['availability'];
-
-        $sql1= "insert into pwebfp.book (Title,Publisher,Year,Availability) values ('$title','$publisher','$year','$availability')";
-
-        if($conn->query($sql1) === TRUE){
-            $sql2 = "select max(BookId) as x from LMS.book";
-            $result = $conn->query($sql2);
-            $row = $result->fetch_assoc();
-            $x = $row['x'];
-            $sql3 = "insert into LMS.author values ('$x','$author1')";
-            $result = $conn->query($sql3);
-
-            if(!empty($author2)){ 
-                $sql4="insert into LMS.author values('$x','$author2')";
-                $result=$conn->query($sql4);
-            }
-            if(!empty($author3)){ 
-                $sql5="insert into LMS.author values('$x','$author3')";
-                $result=$conn->query($sql5);
-            }
-
-            echo "<script type='text/javascript'>alert('Success')</script>";
-        }
-        else{//echo $conn->error;
-            echo "<script type='text/javascript'>alert('Error')</script>";
-        }
-        
-    }
-?>
-    
-</body>
+    </body>
 
 </html>
+
 
 <?php }
 else {

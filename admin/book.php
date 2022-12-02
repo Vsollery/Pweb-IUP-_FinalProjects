@@ -1,5 +1,5 @@
 <?php
-require('dbconn.php');
+    require('dbconn.php');
 ?>
 
 <?php 
@@ -8,96 +8,104 @@ require('dbconn.php');
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap CDN -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <title>All Books</title>
+</head>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LMS</title>
-        <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="css/theme.css" rel="stylesheet">
-        <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
-            rel='stylesheet'>
-    </head>
-    <body>
-        <!-- NAVBAR TOP -->
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php">LMS </a>
-                    <div class="nav-collapse collapse navbar-inverse-collapse">
-                        <ul class="nav pull-right">
-                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="images/user.png" class="nav-avatar" />
-                                <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.php">Your Profile</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+<body>
+    <!-- TOP NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="images/LMS.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Library System
+        </a>
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="images/user.png" width="30" height="30" class="nav-avatar" />
+                        <b class="caret"></b>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="index.php">
+                            <button class="dropdown-item" type="button">Your Profile</button>
+                        </a>
+                        <a href="logout.php">
+                            <button class="dropdown-item" type="button">Logout</button>
+                        </a>
                     </div>
-                    <!-- /.nav-collapse -->
+                </div>
+            </li>
+        </ul>    
+    </nav>
+
+    <!-- side navbar -->
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                    
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item ">
+                            <a href="index.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="message.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-chat-dots-fill"></i> <span class="ms-2 d-none d-sm-inline">Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="student.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-person-workspace"></i> <span class="ms-1 d-none d-sm-inline">Manage Students</span></a>
+                        </li>
+                        <li>
+                            <a href="book.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
+                        </li>
+                        <li>
+                            <a href="addbook.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Add Books</span></a>
+                        </li>
+                        <li>
+                            <a href="requests.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Issue/Return Requests </span> </a>
+                        </li>
+                        <li>
+                            <a href="recommendations.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Book Recommendations </span> </a>
+                        </li>
+                        <li>
+                            <a href="current.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Currently Issued Books </span> </a>
+                        </li>
+                        <li>
+                            <a href="logout.php">
+                                <button type="button" class="btn btn-danger mt-3" style="width: 150px;"> <a href="logout.php">Logout</a></button>
+                            </a>
+                        </li>
+                    </ul>                   
                 </div>
             </div>
-            <!-- /navbar-inner -->
-        </div>
-        <!-- /navbar -->
-        <div class="wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="span3">
-                        <!--SideNav-->
-                        <div class="sidebar">
-                            <ul class="widget widget-menu unstyled">
-                                <li class="active">
-                                    <a href="index.php"><i class="menu-icon icon-home"></i>Home</a>
-                                </li>
-                                 <li>
-                                    <a href="message.php"><i class="menu-icon icon-inbox"></i>Messages</a>
-                                </li>
-                                <li>
-                                    <a href="student.php"><i class="menu-icon icon-user"></i>Manage Students </a>
-                                </li>
-                                <li>
-                                    <a href="book.php"><i class="menu-icon icon-book"></i>All Books </a>
-                                </li>
-                                <li>
-                                    <a href="addbook.php"><i class="menu-icon icon-edit"></i>Add Books </a>
-                                </li>
-                                <li>
-                                    <a href="requests.php"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a>
-                                </li>
-                                <li>
-                                    <a href="recommendations.php"><i class="menu-icon icon-list"></i>Book Recommendations </a>
-                                </li>
-                                <li>
-                                    <a href="current.php"><i class="menu-icon icon-list"></i>Currently Issued Books </a>
-                                </li>
-                            </ul>
-                            <ul class="widget widget-menu unstyled">
-                                <li>
-                                    <a href="logout.php"><i class="menu-icon icon-signout"></i>Logout </a>
-                                </li>
-                            </ul>
+            <!-- CONTENT -->
+            <div class="col mt-5">
+                <div class="container-fluid">
+                    <h1 class="text-center mb-3">All Books</h1>
+                    <form action="book.php" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-0" id="title" name="title" placeholder="Enter Name/ID of Book" aria-label="Search"/>
+                            <button type="submit" name="submit" class="btn btn-outline-dark rounded-0">Search</button>
                         </div>
-                        <!--/.sidebar-->
-                    </div>
-
-                    <div class="span9">
-                        <form class="form-horizontal row-fluid" action="book.php" method="post">
-                            <div class="control-group">
-                                <label class="control-label" for="Search"><b>Search:</b></label>
-                                <div class="controls">
-                                    <input type="text" id="title" name="title" placeholder="Enter Name/ID of Book" class="span8" required>
-                                    <button type="submit" name="submit"class="btn">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                        <br>
+                    </form>
+                    
                     <?php
                         if(isset($_POST['submit'])){
                             $s=$_POST['title'];
@@ -113,63 +121,53 @@ require('dbconn.php');
                                 echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
                             else{
                     ?>
-                        <table class="table" id = "tables">
-                            <thead>
-                                <tr>
-                                    <th>Book id</th>
-                                    <th>Book name</th>
-                                    <th>Availability</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
+
+                    <table class="table mt-5 table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Book Id</th>
+                                <th scope="col">Book Name</th>
+                                <th scope="col">Availability</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
                             <?php                          
                             //$result=$conn->query($sql);
-                                while($row=$result->fetch_assoc()){                            
-                                    $bookid=$row['BookId'];
-                                    $name=$row['Title'];
+                                while($row = $result->fetch_assoc()){                            
+                                    $bookid = $row['BookId'];
+                                    $name = $row['Title'];
                                     $avail=$row['Availability'];                           
                             ?>
-                                <tr>
-                                    <td><?php echo $bookid ?></td>
-                                    <td><?php echo $name ?></td>
-                                    <td><b><?php echo $avail ?></b></td>
-                                    <td>
-                                        <center>
-                                            <a href="bookdetails.php?id=<?php echo $bookid; ?>" class="btn btn-primary">Details</a>
-                                            <a href="edit_book_details.php?id=<?php echo $bookid; ?>" class="btn btn-success">Edit</a>
-                                        </center></td>
-                                </tr>
-                               <?php } ?>
+
+                            <tr>
+                                <th scope="row"><?php echo $bookid ?></th>
+                                <td><?php echo $name ?></td>
+                                <td><?php echo $avail ?></td>
+                                <td>
+                                    <center>
+                                        <a href="bookdetails.php?id=<?php echo $bookid; ?>" class="btn btn-primary">Details</a>
+                                        <a href="edit_book_details.php?id=<?php echo $bookid; ?>" class="btn btn-success">Edit</a>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--/.span9-->
+                        <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <!--/.container-->
         </div>
-        <div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
-            </div>
-        </div>
+    </div>
 
-        
-        <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
-      
-    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
 
 </html>
-
 
 <?php }
 else {
