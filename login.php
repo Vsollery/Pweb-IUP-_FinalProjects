@@ -69,8 +69,5 @@ require('dbconn.php');
     }
     ?>
 
-
-
-
 </body>
 </html>

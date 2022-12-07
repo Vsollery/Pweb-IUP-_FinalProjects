@@ -1,26 +1,23 @@
 <?php
-    require('dbconn.php');
+require('dbconn.php');
 ?>
 
 <?php 
-    if ($_SESSION['RollNo']) {
-?>
+if ($_SESSION['RollNo']) {
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap CDN -->
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <title>Add Books</title>
-</head>
 
-<body>
-    <!-- TOP NAVBAR -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LMS</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    </head>
+    <body>
+         <!-- TOP NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
         <a class="navbar-brand" href="#">
             <img src="images/LMS.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -85,7 +82,7 @@
                         </li>
                         <li>
                             <a href="current.php" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Currently Issued Books </span> </a>
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> Currently Issued Books </span> </a>
                         </li>
                         <li>
                             <a href="logout.php">
@@ -95,87 +92,91 @@
                     </ul>                   
                 </div>
             </div>
-            <!-- CONTENT -->
-            <div class="col mt-5">
-                <div class="container-fluid">
-                    <h1 class="text-center">Add Book</h1>
+            
+
+                    <div class="span9">
+                    <div class="content">
+
+                        <div class="module">
+                            <div class="module-head">
+                                <h3>Send a message</h3>
+                            </div>
+                            <div class="module-body">
+
+                                    <br >
+
+                                    <form class="form-horizontal row-fluid" action="message.php" method="post">
+                                        <div class="control-group">
+                                            <label class="control-label" for="Rollno"><b>Receiver Roll No:</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="RollNo" name="RollNo" placeholder="RollNo" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Message"><b>Message:</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Message" name="Message" placeholder="Enter Message" class="span8" required>
+                                            </div>
+                                            <hr>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button type="submit" name="submit"class="btn">Add Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+
+                        
+                        
+                    </div><!--/.content-->
                 </div>
-                <div class="container bg-light p-5 mt-5">
-                    <form action="addbook.php" method="post">
-                        <div class="form-group">
-                            <label for="InputBookTitle">Book Title</label>
-                            <input type="text" name="title" class="form-control" id="InputBookTitle" placeholder="Enter Book Title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputAuthor">Author</label>
-                            <input type="text" name="author1" class="form-control" id="InputAuthor" placeholder="Enter Author 1" required>
-                            <input type="text" name="author2" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 2">
-                            <input type="text" name="author3" class="form-control border-top-0" id="InputAuthor" placeholder="Enter Author 3">
-                        </div>
-                        <div class="form-group">
-                            <label for="InputPublisher">Publisher</label>
-                            <input type="text" name="publisher" class="form-control" id="InputPublisher" placeholder="Enter Publisher" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputYear">Year</label>
-                            <input type="text" name="year" class="form-control" id="InputYear" placeholder="Enter Year" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputNumOfCop">Number of Copies</label>
-                            <input type="text" name="availability" class="form-control" id="InputNumOfCop" placeholder="Enter Number of Copies" required>
-                        </div>
-                        <button type="submit" name="submit" class="btn btn-primary center">Add Book</button>
-                    </form>
+                    <!--/.span9-->
                 </div>
             </div>
+            <!--/.container-->
         </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<div class="footer">
+            <div class="container">
+                <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
+            </div>
+        </div>
+        
+        <!--/.wrapper-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
+        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="scripts/common.js" type="text/javascript"></script>
+
 <?php
-    if(isset($_POST['submit'])){
-        $title=$_POST['title'];
-        $author1=$_POST['author1'];
-        $author2=$_POST['author2'];
-        $author3=$_POST['author3'];
-        $publisher=$_POST['publisher'];
-        $year=$_POST['year'];
-        $availability=$_POST['availability'];
+if(isset($_POST['submit']))
+{
+    $rollno=$_POST['RollNo'];
+    $message=$_POST['Message'];
 
-        $sql1= "insert into pwebfp.book (Title,Publisher,Year,Availability) values ('$title','$publisher','$year','$availability')";
+$sql1="insert into pwebfp.message (RollNo,Msg,Date,Time) values ('$rollno','$message',curdate(),curtime())";
 
-        if($conn->query($sql1) === TRUE){
-            $sql2 = "select max(BookId) as x from pwebfp.book";
-            $result = $conn->query($sql2);
-            $row = $result->fetch_assoc();
-            $x = $row['x'];
-            $sql3 = "insert into pwebfp.author values ('$x','$author1')";
-            $result = $conn->query($sql3);
-
-            if(!empty($author2)){ 
-                $sql4="insert into pwebfp.author values('$x','$author2')";
-                $result=$conn->query($sql4);
-            }
-            if(!empty($author3)){ 
-                $sql5="insert into pwebfp.author values('$x','$author3')";
-                $result=$conn->query($sql5);
-            }
-
-            echo "<script type='text/javascript'>alert('Success')</script>";
-        }
-        else{//echo $conn->error;
-            echo "<script type='text/javascript'>alert('Error')</script>";
-        }
-        
-    }
-?>
+if($conn->query($sql1) === TRUE){
+echo "<script type='text/javascript'>alert('Success')</script>";
+}
+else
+{//echo $conn->error;
+echo "<script type='text/javascript'>alert('Error')</script>";
+}
     
-</body>
+}
+?>
+    </body>
 
 </html>
+
 
 <?php }
 else {
