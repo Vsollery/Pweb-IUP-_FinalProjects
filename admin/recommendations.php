@@ -93,9 +93,12 @@ if ($_SESSION['RollNo']) {
                 </div>
             </div>
 
-                    <div class="span9">
-                        <table class="table" id = "tables">
-                                  <thead>
+                    
+            <div class="col mt-5">
+                <div class="container-fluid">
+                    <h1 class="text-center mb-3">All Books</h1>
+                        <table class="table mt-5 table-bordered" id = "tables">
+                                  <thead class="thead-dark" >
                                     <tr>
                                       <th>Book Name</th>
                                       <th>Description</th>
@@ -104,18 +107,20 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select * from pwebfp.recommendations";
+                            $sql="select pwebfp.user.Name as name ,pwebfp.recommendations.* from pwebfp.recommendations LEFT JOIN pwebfp.user ON pwebfp.user.RollNo = pwebfp.recommendations.RollNo ";
+
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc())
                             {
                                 $bookname=$row['Book_Name'];
                                 $description=$row['Description'];
-                                $rollno=$row['RollNo'];
+                                $rollno = $row['RollNo'];
+                                $name=$row['name'];
                             ?>
                                     <tr>
                                       <td><?php echo $bookname ?></td>
                                       <td><?php echo $description?></td>
-                                      <td><b><?php echo strtoupper($rollno)?></b></td>
+                                      <td><b><?php echo strtoupper("{$rollno} - {$name}")?></b></td>
 
                                     </tr>
                                <?php } ?>
@@ -126,6 +131,7 @@ if ($_SESSION['RollNo']) {
                                 <a href="addbook.php" class="btn btn-success">Add a Book</a></center>
                     </div>
                     <!--/.span9-->
+                    </div>
                 </div>
             </div>
             <!--/.container-->
