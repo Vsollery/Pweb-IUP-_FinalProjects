@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link align-middle px-0">
+                            <a href="message.php" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-chat-dots-fill"></i> <span class="ms-2 d-none d-sm-inline">Messages</span>
                             </a>
                         </li>

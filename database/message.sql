@@ -28,29 +28,29 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `message` (
+  `MessageId` int(10) NOT NULL AUTO_INCREMENT,
   `RollNo` varchar(50) NOT NULL,
   `Msg` varchar(350) NOT NULL,
   `Date` date NOT NULL,
-  `Time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Time` time NOT NULL,
+  PRIMARY KEY (`MessageId`),
+ KEY `RollNo` (`RollNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `message`
 --
 
-INSERT INTO `message` (`RollNo`, `Msg`, `Date`, `Time`) VALUES
-('7', 'great', '2022-12-07', '22:50:40');
+INSERT INTO `message` (`messageId`,`RollNo`, `Msg`, `Date`, `Time`) VALUES
+(null,'denta12', 'great', '2022-12-07', '22:50:40');
 
 --
 -- Indexes for dumped tables
 --
 
---
--- Indeks untuk tabel `message`
---
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`RollNo`);
-COMMIT;
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`RollNo`) REFERENCES `user` (`RollNo`) ON DELETE CASCADE;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
