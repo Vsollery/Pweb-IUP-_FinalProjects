@@ -132,9 +132,9 @@ if ($_SESSION['RollNo']) {
             $sql1 = "insert into pwebfp.message (RollNo, Msg, Date, Time) values ('$rollno','$message',curdate(),curtime())";
 
             if ($conn->query($sql1) === TRUE) {
-                echo "<script type='text/javascript'>alert('Success')</script>";
+                echo "<script type='text/javascript'>alert('Message Sent')</script>";
             } else { //echo $conn->error;
-                echo "<script type='text/javascript'>alert('Error')</script>";
+                echo "<script type='text/javascript'>alert('Message failed to sent')</script>";
             }
         }
         ?>
