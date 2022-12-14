@@ -114,7 +114,7 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select * from LMS.record,LMS.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
+                            $sql="select * from pwebfp.record,pwebfp.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc())
                             {

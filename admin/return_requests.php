@@ -114,7 +114,7 @@ if ($_SESSION['RollNo']) {
                                   </thead>
                                   <tbody>
                                     <?php
-                            $sql="select return.BookId,return.RollNo,Title,datediff(curdate(),Due_Date) as x from LMS.return,LMS.book,LMS.record where return.BookId=book.BookId and return.BookId=record.BookId and return.RollNo=record.RollNo";
+                            $sql="select return.BookId,return.RollNo,Title,datediff(curdate(),Due_Date) as x from pwebfp.return,pwebfp.book,pwebfp.record where return.BookId=book.BookId and return.BookId=record.BookId and return.RollNo=record.RollNo";
                             $result=$conn->query($sql);
                             while($row=$result->fetch_assoc())
                             {
