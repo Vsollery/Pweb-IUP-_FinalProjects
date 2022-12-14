@@ -97,38 +97,80 @@ if ($_SESSION['RollNo']) {
             <div class="col mt-5">
                 <div class="container-fluid">
                     <h1 class="text-center mb-3">All Books</h1>
+                    
+                        <form action="current.php" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-0" id="title" name="title" placeholder="Enter Roll No of Student/Book Name/Book Id." aria-label="Search"/>
+                            <button type="submit" name="submit" class="btn btn-outline-dark rounded-0">Search</button>
+                        </div>
+                    </form>
+
+                                   
+                                    <?php
+                                    if(isset($_POST['submit']))
+                                        {$s=$_POST['title'];
+                                            $sql="select record.BookId,RollNo,Title,Due_Date,Date_of_Issue,datediff(curdate(),Due_Date) as x from pwebfp.record,pwebfp.book where (Date_of_Issue is NOT NULL and Date_of_Return is NULL and book.Bookid = record.BookId) and (RollNo='$s' or record.BookId='$s' or Title like '%$s%')";
+                                        }
+                                    else
+                                        $sql="select record.BookId,RollNo,Title,Due_Date,Date_of_Issue,datediff(curdate(),Due_Date) as x from pwebfp.record,pwebfp.book where Date_of_Issue is NOT NULL and Date_of_Return is NULL and book.Bookid = record.BookId";
+                                    $result=$conn->query($sql);
+                                    $rowcount=mysqli_num_rows($result);
+
+                                    if(!($rowcount))
+                                        echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
+                                    else
+                                    {
+
+                                    
+                                    ?>
+
+                                    <br>
                         <table class="table mt-5 table-bordered" id = "tables">
                                   <thead class="thead-dark" >
                                     <tr>
-                                      <th>Book Name</th>
-                                      <th>Description</th>
-                                      <th>Recommended By</th>
+                                      <th>Roll No</th>  
+                                      <th>Book id</th>
+                                      <th>Book name</th>
+                                      <th>Issue Date</th>
+                                      <th>Due date</th>
+                                      <th>Dues</th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <?php
-                            $sql="select pwebfp.user.Name as name ,pwebfp.recommendations.* from pwebfp.recommendations LEFT JOIN pwebfp.user ON pwebfp.user.RollNo = pwebfp.recommendations.RollNo ";
+                                  <?php
 
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc())
-                            {
-                                $bookname=$row['Book_Name'];
-                                $description=$row['Description'];
-                                $rollno = $row['RollNo'];
-                                $name=$row['name'];
-                            ?>
-                                    <tr>
-                                      <td><?php echo $bookname ?></td>
-                                      <td><?php echo $description?></td>
-                                      <td><b><?php echo strtoupper("{$rollno} - {$name}")?></b></td>
+                            
 
-                                    </tr>
-                               <?php } ?>
+                                        //$result=$conn->query($sql);
+                                        while($row=$result->fetch_assoc())
+                                        {
+                                            $rollno=$row['RollNo'];
+                                            $bookid=$row['BookId'];
+                                            $name=$row['Title'];
+                                            $issuedate=$row['Date_of_Issue'];
+                                            $duedate=$row['Due_Date'];
+                                            $dues=$row['x'];
+
+                                        ?>
+
+                                                <tr>
+                                                <td><?php echo strtoupper($rollno) ?></td>
+                                                <td><?php echo $bookid ?></td>
+                                                <td><?php echo $name ?></td>
+                                                <td><?php echo $issuedate ?></td>
+                                                <td><?php echo $duedate ?></td>
+                                                <td><?php if($dues > 0)
+                                                            echo "<font color='red'>".$dues."</font>";
+                                                            else
+                                                            echo "<font color='green'>0</font>";
+                                                        ?>
+                                                </tr>
+                                                <?php } ?>
+                                             <?php } ?>
+
                                </tbody>
                                 </table>
 
-                                <center>
-                                <a href="addbook.php" class="btn btn-success">Add a Book</a></center>
                     </div>
                     <!--/.span9-->
                     </div>
@@ -149,7 +191,6 @@ if ($_SESSION['RollNo']) {
     </body>
 
 </html>
-
 
 <?php }
 else {
