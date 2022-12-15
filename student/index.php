@@ -64,7 +64,7 @@
                                 <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
                         </li>
                         <li>
-                            <a href="index.php" class="nav-link px-0 align-middle">
+                            <a href="history.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Previously Borrowed Books</span></a>
                         </li>
                         <li>
@@ -72,7 +72,7 @@
                                 <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Recommend Books</span> </a>
                         </li>
                         <li>
-                            <a href="index.php" class="nav-link px-0 align-middle">
+                            <a href="current.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> Currently Issued Books </span> </a>
                         </li>
                         <li>

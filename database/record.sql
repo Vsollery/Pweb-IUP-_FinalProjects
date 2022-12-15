@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS `record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `record` (
+  
   `RollNo` varchar(50) NOT NULL,
   `BookId` int(10) NOT NULL,
   `Date_of_Issue` date DEFAULT NULL,

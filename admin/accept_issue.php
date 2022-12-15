@@ -12,7 +12,7 @@ $type=$row['Type'];
 
 
 
-if($type == 'Student' )
+if($type == 'Student')
 {$sql1="update pwebfp.record set Date_of_Issue=curdate(),Due_Date=date_add(curdate(),interval 180 day),Renewals_left=1 where BookId='$bookid' and RollNo='$rollno'";
  
 if($conn->query($sql1) === TRUE)
