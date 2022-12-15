@@ -123,9 +123,7 @@
                                 <label for="Password">Password</label>
                                 <input type="password" id="Password" name="Password" class="form-control" value= "<?php echo $pswd?>"  placeholder="Enter new Password" required>
                             </div>
-
                             <button type="submit" name="submit" class="btn btn-primary center">Update Profile</button>
-
                         </form>
                     </div>
                 </div>

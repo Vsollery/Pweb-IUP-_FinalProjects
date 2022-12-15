@@ -11,9 +11,6 @@ $row=$result->fetch_assoc();
 
 $type=$row['Type'];
 
-
-
-
 $sql1="update pwebfp.record set Date_of_Return=curdate(),Dues='$dues' where BookId='$bookid' and RollNo='$rollno'";
  
 if($conn->query($sql1) === TRUE)

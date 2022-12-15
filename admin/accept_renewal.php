@@ -10,8 +10,6 @@ $row=$result->fetch_assoc();
 
 $type=$row['Type'];
 
-
-
 if($type == 'Student')
 {$sql1="update pwebfp.record set Due_Date=date_add(Due_Date,interval 60 day),Renewals_left=0 where BookId='$bookid' and RollNo='$rollno'";
  
