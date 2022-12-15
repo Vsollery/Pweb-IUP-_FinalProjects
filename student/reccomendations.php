@@ -5,7 +5,6 @@ require('dbconn.php');
 <?php
 if ($_SESSION['RollNo']) {
 ?>
-
     <!DOCTYPE html>
     <html lang="en">
 
