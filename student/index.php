@@ -109,7 +109,7 @@
                             <h4 class="text-start">Mobile Number: <p><?php echo $mobno ?></p></h4>
                         </div>
                     </div>
-                    <a href="index.php">
+                    <a href="edit_student_details.php">
                         <button type="button" class="btn btn-primary mt-5 ">Edit Profile</button>
                     </a>
                 </center>
