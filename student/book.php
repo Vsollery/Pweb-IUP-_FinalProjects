@@ -52,7 +52,7 @@
             <div class="col-auto col-md-3 col-xl-2 px-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
                     
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item ">
                             <a href="index.php" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
@@ -68,15 +68,15 @@
                                 <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
                         </li>
                         <li>
-                            <a href="index.php" class="nav-link px-0 align-middle">
+                            <a href="history.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Previously Borrowed Books</span></a>
                         </li>
                         <li>
-                            <a href="index.php" class="nav-link px-0 align-middle">
+                            <a href="reccomendations.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Recommend Books</span> </a>
                         </li>
                         <li>
-                            <a href="index.php" class="nav-link px-0 align-middle">
+                            <a href="current.php" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> Currently Issued Books </span> </a>
                         </li>
                         <li>
