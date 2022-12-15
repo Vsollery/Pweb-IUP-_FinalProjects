@@ -94,25 +94,27 @@ if ($_SESSION['RollNo']) {
                     </div>
                 </div>
                         <!--/.sidebar-->
+                        <div class="col mt-5">
+                    <div class="container-fluid">
+                        <h1 class="text-center mb-5">Return Request</h1>
                     </div>
-                    <div class="span9">
-                        <center>
+                    <center>
                         <a href="issue_requests.php" class="btn btn-info">Issue Requests</a>
                         <a href="renew_requests.php" class="btn btn-info">Renew Request</a>
                         <a href="return_requests.php" class="btn btn-info">Return Requests</a>
-                        </center>
-                        <h1><i>Return Requests</i></h1>
-                        <table class="table" id = "tables">
-                                  <thead>
-                                    <tr>
-                                      <th>Roll Number</th>
-                                      <th>Book Id</th>
-                                      <th>Book Name</th>
-                                      <th>Dues</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
+                    </center>
+                    <table class="table mt-5 table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Roll Number</th>
+                                <th scope="col">Book Id </th>
+                                <th scope="col">Book Name</th>
+                                <th scope="col">Dues</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
                                     <?php
                             $sql="select return.BookId,return.RollNo,Title,datediff(curdate(),Due_Date) as x from pwebfp.return,pwebfp.book,pwebfp.record where return.BookId=book.BookId and return.BookId=record.BookId and return.RollNo=record.RollNo";
                             $result=$conn->query($sql);

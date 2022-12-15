@@ -94,25 +94,27 @@ if ($_SESSION['RollNo']) {
                     </div>
                 </div>
                         <!--/.sidebar-->
+                        <div class="col mt-5">
+                    <div class="container-fluid">
+                        <h1 class="text-center mb-5">Issue Request</h1>
                     </div>
-                    <div class="span9">
-                        <center>
+                    <center>
                         <a href="issue_requests.php" class="btn btn-info">Issue Requests</a>
                         <a href="renew_requests.php" class="btn btn-info">Renew Request</a>
                         <a href="return_requests.php" class="btn btn-info">Return Requests</a>
-                        </center>
-                        <h1><i>Issue Requests</i></h1>
-                        <table class="table" id = "tables">
-                                  <thead>
-                                    <tr>
-                                      <th>Roll Number</th>
-                                      <th>Book Id</th>
-                                      <th>Book Name</th>
-                                      <th>Availabilty</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
+                    </center>
+                    <table class="table mt-5 table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Roll Number</th>
+                                <th scope="col">Book Id </th>
+                                <th scope="col">Book Name</th>
+                                <th scope="col">Availability</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
                                     <?php
                             $sql="select * from pwebfp.record,pwebfp.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
                             $result=$conn->query($sql);
