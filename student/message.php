@@ -51,53 +51,45 @@ if ($_SESSION['RollNo']) {
 
         <!-- side navbar -->
         <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-2 px-0 bg-dark">
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
-
-                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
-                            <li class="nav-item ">
-                                <a href="index.php" class="nav-link align-middle px-0">
-                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="message.php" class="nav-link align-middle px-0">
-                                    <i class="fs-4 bi-chat-dots-fill"></i> <span class="ms-2 d-none d-sm-inline">Messages</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="student.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-person-workspace"></i> <span class="ms-1 d-none d-sm-inline">Manage Students</span></a>
-                            </li>
-                            <li>
-                                <a href="book.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
-                            </li>
-                            <li>
-                                <a href="addbook.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Add Books</span></a>
-                            </li>
-                            <li>
-                                <a href="requests.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Issue/Return Requests </span> </a>
-                            </li>
-                            <li>
-                                <a href="recommendations.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Book Recommendations </span> </a>
-                            </li>
-                            <li>
-                                <a href="current.php" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> Currently Issued Books </span> </a>
-                            </li>
-                            <li>
-                                <a href="logout.php">
-                                    <button type="button" class="btn btn-danger mt-3" style="width: 150px;"> <a href="logout.php">Logout</a></button>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                    
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 mt-5 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item ">
+                            <a href="index.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="message.php" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-chat-dots-fill"></i> <span class="ms-2 d-none d-sm-inline">Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">All Books</span></a>
+                        </li>
+                        <li>
+                            <a href="index.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-bookshelf"></i> <span class="ms-1 d-none d-sm-inline">Previously Borrowed Books</span></a>
+                        </li>
+                        <li>
+                            <a href="index.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-archive-fill"></i> <span class="ms-1 d-none d-sm-inline">Recommend Books</span> </a>
+                        </li>
+                        <li>
+                            <a href="index.php" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"> Currently Issued Books </span> </a>
+                        </li>
+                        <li>
+                            <a href="logout.php">
+                                <button type="button" class="btn btn-danger mt-3" style="width: 150px;"> <a href="logout.php">Logout</a></button>
+                            </a>
+                        </li>
+                    </ul>                   
                 </div>
+            </div>
 
 
                         <!--/.sidebar-->
