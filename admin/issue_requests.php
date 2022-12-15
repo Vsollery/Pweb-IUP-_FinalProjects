@@ -2,11 +2,11 @@
 require('dbconn.php');
 ?>
 
-<?php 
+<?php
 if ($_SESSION['RollNo']) {
-    ?>
+?>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -93,8 +93,8 @@ if ($_SESSION['RollNo']) {
                         </ul>
                     </div>
                 </div>
-                        <!--/.sidebar-->
-                        <div class="col mt-5">
+                <!--/.sidebar-->
+                <div class="col mt-5">
                     <div class="container-fluid">
                         <h1 class="text-center mb-5">Issue Request</h1>
                     </div>
@@ -115,47 +115,49 @@ if ($_SESSION['RollNo']) {
                         </thead>
 
                         <tbody>
-                                    <?php
-                            $sql="select * from pwebfp.record,pwebfp.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc())
-                            {
-                                $bookid=$row['BookId'];
-                                $rollno=$row['RollNo'];
-                                $name=$row['Title'];
-                                $avail=$row['Availability'];
-                            
-                                
+                            <?php
+                            $sql = "select * from pwebfp.record,pwebfp.book where Date_of_Issue is NULL and record.BookId=book.BookId order by Time";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()) {
+                                $bookid = $row['BookId'];
+                                $rollno = $row['RollNo'];
+                                $name = $row['Title'];
+                                $avail = $row['Availability'];
+
+
                             ?>
-                                    <tr>
-                                      <td><?php echo strtoupper($rollno) ?></td>
-                                      <td><?php echo $bookid ?></td>
-                                      <td><b><?php echo $name ?></b></td>
-                                      <td><?php echo $avail ?></td>
-                                      <td><center>
-                                        <?php
-                                        if($avail > 0)
-                                        {echo "<a href=\"accept_issue.php?id1=".$bookid."&id2=".$rollno."\" class=\"btn btn-success\">Accept</a>";}
-                                         ?>
-                                        <a href="reject.php?id1=<?php echo $bookid ?>&id2=<?php echo $rollno ?>" class="btn btn-danger">Reject</a>
-                                    </center></td>
-                                    </tr>
-                               <?php } ?>
-                               </tbody>
-                                </table>
-                            </div>
-                    <!--/.span3-->
-                    <!--/.span9-->
+                                <tr>
+                                    <td><?php echo strtoupper($rollno) ?></td>
+                                    <td><?php echo $bookid ?></td>
+                                    <td><b><?php echo $name ?></b></td>
+                                    <td><?php echo $avail ?></td>
+                                    <td>
+                                        <center>
+                                            <?php
+                                            if ($avail > 0) {
+                                                echo "<a href=\"accept.php?id1=" . $bookid . "&id2=" . $rollno . "\" class=\"btn btn-success\">Accept</a>";
+                                            }
+                                            ?>
+                                            <a href="reject.php?id1=<?php echo $bookid ?>&id2=<?php echo $rollno ?>" class="btn btn-danger">Reject</a>
+                                        </center>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
+                <!--/.span3-->
+                <!--/.span9-->
             </div>
-            <!--/.container-->
         </div>
-<div class="footer">
+        <!--/.container-->
+        </div>
+        <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2022 Library Management System </b>All rights reserved.
             </div>
         </div>
-        
+
         <!--/.wrapper-->
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
@@ -164,13 +166,15 @@ if ($_SESSION['RollNo']) {
         <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
-      
+
     </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-</html>
+    </html>
 
 
-<?php }
-else {
+<?php } else {
     echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
 } ?>
