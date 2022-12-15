@@ -8,7 +8,6 @@ if ($_SESSION['RollNo']) {
 
 <!DOCTYPE html>
     <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +45,6 @@ if ($_SESSION['RollNo']) {
                 </li>
             </ul>
         </nav>
-
         <!-- side navbar -->
         <div class="container-fluid">
             <div class="row flex-nowrap">
@@ -120,7 +118,7 @@ if ($_SESSION['RollNo']) {
                                     ?>
                                     
                                     <table class="table mt-5 table-bordered">
-                        <thead class="thead-dark">
+                                    <thead class="thead-dark">
                                     <tr>
                                       <th>Book id</th>
                                       <th>Book name</th>

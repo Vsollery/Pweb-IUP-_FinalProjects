@@ -174,7 +174,7 @@ if(isset($_POST['submit']))
     $mobno=$_POST['MobNo'];
     $pswd=$_POST['Password'];
 
-$sql1="update LMS.user set Name='$name', Category='$category', EmailId='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
+$sql1="update pwebfp.user set Name='$name', Category='$category', EmailId='$email', MobNo='$mobno', Password='$pswd' where RollNo='$rollno'";
 
 
 

@@ -41,7 +41,6 @@ require('dbconn.php');
         {
             $u=$_POST['RollNo'];
             $p=$_POST['Password'];
-         
 
             $sql="select * from PwebFP.user where RollNo='$u'";
         
@@ -54,7 +53,6 @@ require('dbconn.php');
             {
                 echo "Login Successful";
                  $_SESSION['RollNo']=$u;
-           
         
                 if($y=='Admin')
                 header('location:admin/index.php');

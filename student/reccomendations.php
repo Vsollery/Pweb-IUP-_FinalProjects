@@ -7,7 +7,6 @@ if ($_SESSION['RollNo']) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -121,8 +120,6 @@ if ($_SESSION['RollNo']) {
 
             $sql1 = "insert into pwebfp.recommendations (Book_Name,Description,RollNo) values ('$title','$Description','$rollno')";
 
-
-
             if ($conn->query($sql1) === TRUE) {
 
 
@@ -133,9 +130,7 @@ if ($_SESSION['RollNo']) {
         }
         ?>
 
-
     </body>
-
     </html>
 
 <?php } else {
