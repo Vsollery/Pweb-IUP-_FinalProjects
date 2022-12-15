@@ -30,7 +30,7 @@ CREATE TABLE `author` (
 
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
-INSERT INTO `author` VALUES (1,'PUBLISHER.Co'); 
+INSERT INTO `author` VALUES (1,'PUBLISHER.Co'),('19', 'Albert Camus'),('20', 'Marcus Aurelius'); 
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
