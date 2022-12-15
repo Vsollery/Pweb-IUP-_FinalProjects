@@ -18,7 +18,7 @@ CREATE TABLE `recommendations` (
 
 LOCK TABLES `recommendations` WRITE;
 /*!40000 ALTER TABLE `recommendations` DISABLE KEYS */;
-INSERT INTO `recommendations` VALUES (null,'OS','Test','denta12');
+INSERT INTO `recommendations` VALUES (null,'The Idiot','Test','denta12');
 /*!40000 ALTER TABLE `recommendations` ENABLE KEYS */;
 UNLOCK TABLES;
 
